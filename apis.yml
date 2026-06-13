@@ -1,0 +1,71 @@
+aid: instamojo
+name: Instamojo
+description: Indian digital payments and e-commerce platform with a REST API for payment requests, refunds, store products, order management, and mobile payment links. Trusted by over 1.2 million Indian small businesses.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/instamojo/refs/heads/main/apis.yml
+created: "2026-06-13"
+modified: "2026-06-13"
+specificationVersion: "0.19"
+tags:
+  - Payments
+  - E-Commerce
+  - India
+  - Payment Gateway
+  - Payment Links
+  - Refunds
+  - Orders
+
+apis:
+
+  - name: Instamojo Payments API
+    description: REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.instamojo.com/
+    baseURL: https://api.instamojo.com/v2/
+    tags:
+      - Payments
+      - Payment Requests
+      - Refunds
+      - Orders
+    properties:
+      - type: Documentation
+        url: https://docs.instamojo.com/
+      - type: OpenAPI
+        url: https://docs.instamojo.com/reference/
+
+common:
+
+  - type: Website
+    url: https://www.instamojo.com/
+
+  - type: Documentation
+    url: https://docs.instamojo.com/
+
+  - type: GitHubOrg
+    url: https://github.com/Instamojo
+
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/instamojo
+
+  - type: Blog
+    url: https://www.instamojo.com/blog/
+
+  - type: Pricing
+    url: https://www.instamojo.com/pricing/
+
+  - type: X
+    url: https://twitter.com/instamojo
+
+  - type: Plans
+    url: plans/instamojo-plans-pricing.yml
+
+  - type: RateLimits
+    url: rate-limits/instamojo-rate-limits.yml
+
+  - type: FinOps
+    url: finops/instamojo-finops.yml
+
+maintainers:
+
+  - FN: Kin Lane
+    email: kin@apievangelist.com

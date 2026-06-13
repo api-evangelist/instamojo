@@ -1,0 +1,22 @@
+name: Instamojo API Rate Limits
+description: Rate limit information for the Instamojo REST API. Instamojo does not publicly document specific rate limits; developers should contact support for current throttling thresholds.
+url: https://docs.instamojo.com/
+limits:
+
+  - name: General API Rate Limit
+    description: Instamojo does not publicly specify numeric rate limits in their API documentation. Standard REST API best practices apply and excessive request volumes may result in throttling.
+    type: requests
+    period: unknown
+    limit: undocumented
+    notes:
+      - Contact Instamojo support for specific rate limit thresholds
+      - Application-based authentication tokens should be cached and reused rather than regenerated per request
+      - Webhook delivery retries are managed by Instamojo on the server side
+
+authentication:
+  type: Bearer Token
+  method: Application Based Authentication
+  token_endpoint: "POST https://api.instamojo.com/v2/generate-access-token-application-based-authentication"
+  notes:
+    - Access tokens must be obtained before making API calls
+    - Tokens should be cached to avoid unnecessary regeneration

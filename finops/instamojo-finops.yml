@@ -1,0 +1,52 @@
+name: Instamojo FinOps
+description: Financial operations considerations for integrating the Instamojo API, covering transaction fees, GST implications, and cost optimization strategies for Indian businesses.
+url: https://www.instamojo.com/pricing/
+
+cost_model:
+  type: transaction_based
+  description: Instamojo charges per-transaction fees rather than API call fees. Costs scale directly with payment volume processed through the platform.
+  currency: INR
+
+transaction_fees:
+  standard_gateway:
+    rate: "2% + ₹3"
+    description: Standard payment gateway transaction fee applied to most payment methods
+    gst: "18% on transaction fee"
+
+  corporate_cards:
+    rate: "3% + ₹3"
+    description: Higher fee applied to corporate card transactions
+    gst: "18% on transaction fee"
+
+  free_plans:
+    rate: "5% + ₹3"
+    description: Higher transaction fee applies to Lite and Basic free plans
+
+fee_calculator:
+  url: https://www.instamojo.com/fee-calculator/
+  description: Official fee calculator to estimate costs before integration
+
+plan_cost_comparison:
+  description: Annual subscription plans reduce per-transaction fees from 5% to 2% for high-volume businesses
+  break_even_analysis:
+    growth_plan_cost: 14999
+    fee_saving_per_transaction: "3% reduction"
+    notes:
+      - For businesses processing more than ~₹5 lakh/year, upgraded plans may reduce total cost
+      - Online Store Growth plan at ₹14,999/year provides 2% + ₹3 rate vs 5% + ₹3 on free tier
+
+optimization_recommendations:
+  - Cache authentication tokens to avoid unnecessary token generation calls
+  - Use webhooks for payment status updates instead of polling the API to reduce API call volume
+  - Evaluate transaction volume before choosing subscription tier to optimize total cost
+  - Factor 18% GST into all fee calculations for accurate cost modeling
+  - Use the fee calculator at https://www.instamojo.com/fee-calculator/ for pre-integration cost estimates
+
+refunds:
+  notes:
+    - Refunds can be created via the API using POST /v2/refunds/
+    - Refund fee handling should be verified with Instamojo support for current policies
+
+reporting:
+  dashboard_url: https://www.instamojo.com/
+  description: Transaction reporting and analytics available through the Instamojo merchant dashboard

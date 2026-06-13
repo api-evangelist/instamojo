@@ -1,0 +1,108 @@
+name: Instamojo Plans and Pricing
+description: Pricing plans for Instamojo online store, smart pages, and payment links products with per-transaction fees for Indian businesses.
+url: https://www.instamojo.com/pricing/
+plans:
+
+  - name: Online Store Lite
+    description: Free online store plan for small businesses getting started with digital payments.
+    url: https://www.instamojo.com/pricing/
+    price: 0
+    currency: INR
+    period: monthly
+    features:
+      - Online store
+      - Payment links
+      - Basic analytics
+    transaction_fee: "5% + ₹3 per transaction"
+
+  - name: Online Store Starter
+    description: Annual plan for growing businesses with reduced transaction fees.
+    url: https://www.instamojo.com/pricing/
+    price: 6999
+    currency: INR
+    period: yearly
+    features:
+      - Online store
+      - Payment links
+      - Standard analytics
+    transaction_fee: "5% + ₹3 per transaction"
+
+  - name: Online Store Growth
+    description: Full-featured annual plan with lower transaction fees and a free domain.
+    url: https://www.instamojo.com/pricing/
+    price: 14999
+    currency: INR
+    period: yearly
+    monthly_equivalent: 2999
+    features:
+      - Online store
+      - Payment links
+      - Free domain (up to ₹1,000 value)
+      - Advanced analytics
+      - Priority support
+    transaction_fee: "2% + ₹3 per transaction"
+
+  - name: Online Store Do-It-For-Me
+    description: Fully managed store setup with custom pricing for enterprises.
+    url: https://www.instamojo.com/pricing/
+    price: custom
+    currency: INR
+    period: custom
+    features:
+      - Fully managed setup
+      - Custom store design
+      - Dedicated support
+    transaction_fee: included
+
+  - name: Smart Pages Basic
+    description: Free landing page plan for creators and entrepreneurs.
+    url: https://www.instamojo.com/pricing/
+    price: 0
+    currency: INR
+    period: monthly
+    features:
+      - Smart pages (landing pages)
+      - Payment collection
+    transaction_fee: "5% + ₹3 per transaction"
+
+  - name: Smart Pages Pro
+    description: Professional landing page plan with custom domain and no Instamojo branding.
+    url: https://www.instamojo.com/pricing/
+    price: 12999
+    currency: INR
+    period: yearly
+    monthly_equivalent: 2499
+    features:
+      - Smart pages (landing pages)
+      - Custom domain linking
+      - No Instamojo branding
+    transaction_fee: "2% + ₹3 per transaction"
+
+  - name: Payment Links Quick
+    description: Free plan for basic payment link creation.
+    url: https://www.instamojo.com/pricing/
+    price: 0
+    currency: INR
+    period: monthly
+    features:
+      - Payment links
+      - Basic payment collection
+    transaction_fee: "2% + ₹3 per transaction"
+
+  - name: Payment Links Smart
+    description: Advanced payment links plan with additional features.
+    url: https://www.instamojo.com/pricing/
+    price: 4999
+    currency: INR
+    period: yearly
+    monthly_equivalent: 1499
+    features:
+      - Smart payment links
+      - Advanced customization
+      - Analytics
+    transaction_fee: "2% + ₹3 per transaction"
+
+notes:
+  - 18% GST is charged on all transaction fees
+  - Corporate card transactions are charged at 3% + ₹3 per transaction
+  - Standard payment gateway rate is 2% + ₹3 per transaction
