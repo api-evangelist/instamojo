@@ -1,0 +1,21 @@
+{
+  "title": "Generate Access Token",
+  "description": "Example request and response for generating an Instamojo OAuth2 access token using client credentials",
+  "request": {
+    "method": "POST",
+    "url": "https://api.instamojo.com/v2/oauth2/token/",
+    "headers": {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "body": "grant_type=client_credentials&client_id=your_client_id&client_secret=your_client_secret"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "access_token": "c4e17ad5cc4e7b43b2f5f9ab9ca6c928",
+      "token_type": "Bearer",
+      "expires_in": 36000,
+      "scope": "read write"
+    }
+  }
+}

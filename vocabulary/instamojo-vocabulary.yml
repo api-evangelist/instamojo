@@ -1,0 +1,116 @@
+vocabulary:
+  title: Instamojo API Vocabulary
+  description: Key terms and concepts used in the Instamojo Payments API
+  source: https://docs.instamojo.com/
+  terms:
+
+    - term: payment_request
+      label: Payment Request
+      description: >
+        The primary mechanism for collecting payments. A payment request is created
+        by specifying a purpose and amount, which generates a unique URL that can be
+        shared with buyers to complete payment.
+      properties:
+        - id
+        - purpose
+        - amount
+        - status
+        - longurl
+        - allow_repeated_payments
+
+    - term: payment_id
+      label: Payment ID
+      description: >
+        A unique identifier (e.g. MOJO5a06005J21512345) assigned to each individual
+        payment transaction. Returned in the redirect URL and webhook payload after
+        a buyer completes or fails a payment.
+      example: "MOJO5a06005J21512345"
+
+    - term: longurl
+      label: Long URL / Payment URL
+      description: >
+        The shareable payment URL generated for a payment request. Buyers visit this
+        URL to view the payment form and complete their transaction via Instamojo's
+        hosted checkout page.
+      format: "https://www.instamojo.com/@{merchant_handle}/{payment_request_id}"
+
+    - term: refund
+      label: Refund
+      description: >
+        A reversal of a completed payment, initiated by the merchant. Refunds can be
+        full or partial and require a type code and explanation. Once processed,
+        funds are returned to the buyer's payment instrument.
+
+    - term: refund_type
+      label: Refund Type Code
+      description: Three-letter code identifying the reason for a refund
+      values:
+        RFD: General refund
+        TNR: Test refund
+        QFL: Quality or fulfillment issue
+        QNR: Quality not as represented
+        EWN: Event or workshop not held
+        TAN: Technical issue or app not working
+        PTH: Paid to wrong handle
+
+    - term: payment_status
+      label: Payment Status
+      description: The current state of a payment transaction
+      values:
+        Credit: Payment was successful and funds credited
+        Failed: Payment was unsuccessful
+        Pending: Payment is being processed
+
+    - term: payment_request_status
+      label: Payment Request Status
+      description: The current state of a payment request
+      values:
+        Pending: No payment completed yet
+        Completed: At least one successful payment received
+        Failed: Payment failed
+        Expired: Payment request has expired
+
+    - term: instrument_type
+      label: Payment Instrument Type
+      description: The type of payment method used by the buyer
+      values:
+        CREDIT_CARD: Credit card payment
+        DEBIT_CARD: Debit card payment
+        NET_BANKING: Internet banking transfer
+        WALLET: Mobile or digital wallet
+        UPI: Unified Payments Interface (Indian real-time payment system)
+        EMI: Equated Monthly Installment
+
+    - term: webhook
+      label: Webhook
+      description: >
+        A server-to-server HTTP POST notification sent by Instamojo to the merchant's
+        specified URL when a payment succeeds or fails. Used for real-time payment
+        confirmation without relying solely on redirect URL parameters.
+
+    - term: sandbox
+      label: Sandbox / Test Environment
+      description: >
+        A test environment available at test.instamojo.com where merchants can
+        simulate payments without real money. Uses separate test credentials.
+      url: https://test.instamojo.com/
+
+    - term: client_id
+      label: Client ID
+      description: >
+        OAuth2 client identifier issued by Instamojo upon account registration.
+        Used together with client_secret to obtain access tokens via the
+        /oauth2/token/ endpoint.
+
+    - term: client_secret
+      label: Client Secret
+      description: >
+        Secret key paired with client_id for OAuth2 authentication. Must be kept
+        confidential and never exposed in client-side code.
+
+    - term: order
+      label: Order
+      description: >
+        An order created from a payment request, primarily used within the
+        Instamojo SDK-based integration flow. Represents a confirmed purchase
+        intent with associated payment details.

@@ -31,7 +31,7 @@ apis:
       - type: Documentation
         url: https://docs.instamojo.com/
       - type: OpenAPI
-        url: https://docs.instamojo.com/reference/
+        url: https://raw.githubusercontent.com/api-evangelist/instamojo/refs/heads/main/openapi/instamojo-payments-api.yml
 
 common:
 

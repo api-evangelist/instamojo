@@ -1,0 +1,127 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "instamojo": "https://api.instamojo.com/v2/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "PaymentRequest": {
+      "@id": "instamojo:payment_requests",
+      "@type": "@id"
+    },
+    "Payment": {
+      "@id": "schema:PaymentChargeSpecification",
+      "@type": "@id"
+    },
+    "Refund": {
+      "@id": "schema:RefundTypeEnumeration",
+      "@type": "@id"
+    },
+    "Order": {
+      "@id": "schema:Order",
+      "@type": "@id"
+    },
+
+    "id": "@id",
+    "purpose": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "schema:price",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "schema:priceCurrency",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "schema:orderStatus",
+      "@type": "xsd:string"
+    },
+    "buyer_name": {
+      "@id": "schema:givenName",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "redirect_url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "webhook": {
+      "@id": "instamojo:webhook",
+      "@type": "@id"
+    },
+    "longurl": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "payment_id": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "refund_amount": {
+      "@id": "schema:price",
+      "@type": "xsd:string"
+    },
+    "total_amount": {
+      "@id": "schema:totalPrice",
+      "@type": "xsd:string"
+    },
+    "instrument_type": {
+      "@id": "schema:paymentMethod",
+      "@type": "xsd:string"
+    },
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "modified_at": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "send_email": {
+      "@id": "instamojo:send_email",
+      "@type": "xsd:boolean"
+    },
+    "send_sms": {
+      "@id": "instamojo:send_sms",
+      "@type": "xsd:boolean"
+    },
+    "allow_repeated_payments": {
+      "@id": "instamojo:allow_repeated_payments",
+      "@type": "xsd:boolean"
+    },
+    "payments": {
+      "@id": "schema:payment",
+      "@container": "@set"
+    },
+    "type": {
+      "@id": "instamojo:refund_type",
+      "@type": "xsd:string"
+    },
+    "body": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "buyer_email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "buyer_phone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "failure_reason": {
+      "@id": "instamojo:failure_reason",
+      "@type": "xsd:string"
+    }
+  }
+}
