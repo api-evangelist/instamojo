@@ -1,7 +1,7 @@
 aid: instamojo
 name: Instamojo
 description: Indian digital payments and e-commerce platform with a REST API for payment requests, refunds, store products, order management, and mobile payment links. Trusted by over 1.2 million Indian small businesses.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/instamojo/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -19,7 +19,7 @@ apis:
 
   - name: Instamojo Payments API
     description: REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.instamojo.com/
     baseURL: https://api.instamojo.com/v2/
     tags:
