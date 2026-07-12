@@ -35,6 +35,10 @@ apis:
 
 common:
 
+  - type: DomainSecurity
+    url: security/instamojo-domain-security.yml
+  - type: Authentication
+    url: authentication/instamojo-authentication.yml
   - type: Website
     url: https://www.instamojo.com/
 

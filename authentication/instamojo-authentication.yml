@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/instamojo-payments-api.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: OAuth2 Bearer token obtained from /oauth2/token/
+  sources:
+  - openapi/instamojo-payments-api.yml
