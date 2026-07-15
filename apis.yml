@@ -35,6 +35,8 @@ apis:
 
 common:
 
+  - type: AgenticAccess
+    url: agentic-access/instamojo-agentic-access.yml
   - type: DomainSecurity
     url: security/instamojo-domain-security.yml
   - type: Authentication
