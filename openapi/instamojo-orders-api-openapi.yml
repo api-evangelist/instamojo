@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+  title: Instamojo Payments Authentication Orders API
+  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
+
+    '
+  version: '2.0'
+  termsOfService: https://www.instamojo.com/terms/
+  contact:
+    name: Instamojo Support
+    url: https://support.instamojo.com/
+  license:
+    name: Proprietary
+    url: https://www.instamojo.com/terms/
+servers:
+- url: https://api.instamojo.com/v2
+  description: Production server
+- url: https://test.instamojo.com/v2
+  description: Sandbox/Test server
+security:
+- BearerAuth: []
+tags:
+- name: Orders
+  description: Create and manage orders
+paths:
+  /orders/:
+    post:
+      tags:
+      - Orders
+      summary: Create an Order Using Payment Request ID
+      description: 'Create an order using an existing Payment Request ID. This endpoint is primarily used with the Instamojo SDK flow.
+
+        '
+      operationId: createOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - payment_request_id
+              properties:
+                payment_request_id:
+                  type: string
+                  description: The ID of the payment request to convert to an order
+      responses:
+        '200':
+          description: Order created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  order:
+                    $ref: '#/components/schemas/Order'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique order ID
+        payment_request_id:
+          type: string
+          description: ID of the payment request used to create the order
+        status:
+          type: string
+          description: Order status
+          enum:
+          - Pending
+          - Completed
+          - Failed
+        amount:
+          type: string
+          description: Order amount in INR
+        created_at:
+          type: string
+          format: date-time
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth2 Bearer token obtained from /oauth2/token/

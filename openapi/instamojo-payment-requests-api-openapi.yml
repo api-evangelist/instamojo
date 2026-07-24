@@ -1,0 +1,415 @@
+openapi: 3.0.3
+info:
+  title: Instamojo Payments Authentication Payment Requests API
+  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
+
+    '
+  version: '2.0'
+  termsOfService: https://www.instamojo.com/terms/
+  contact:
+    name: Instamojo Support
+    url: https://support.instamojo.com/
+  license:
+    name: Proprietary
+    url: https://www.instamojo.com/terms/
+servers:
+- url: https://api.instamojo.com/v2
+  description: Production server
+- url: https://test.instamojo.com/v2
+  description: Sandbox/Test server
+security:
+- BearerAuth: []
+tags:
+- name: Payment Requests
+  description: Create and manage payment requests
+paths:
+  /payment_requests/:
+    get:
+      tags:
+      - Payment Requests
+      summary: List Payment Requests
+      description: Get a list of all payment requests, optionally filtered by date range.
+      operationId: listPaymentRequests
+      parameters:
+      - name: min_created_at
+        in: query
+        description: Filter payment requests created on or after this date (YYYY-MM-DD)
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: max_created_at
+        in: query
+        description: Filter payment requests created on or before this date (YYYY-MM-DD)
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: min_modified_at
+        in: query
+        description: Filter payment requests modified on or after this date (YYYY-MM-DD)
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: max_modified_at
+        in: query
+        description: Filter payment requests modified on or before this date (YYYY-MM-DD)
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: limit
+        in: query
+        description: Number of results per page
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+      - name: page
+        in: query
+        description: Page number for pagination
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      responses:
+        '200':
+          description: List of payment requests
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  payment_requests:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PaymentRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      tags:
+      - Payment Requests
+      summary: Create a Payment Request
+      description: 'Create a new payment request by specifying a purpose and amount. Returns a Payment Request ID and a URL to redirect the buyer to.
+
+        '
+      operationId: createPaymentRequest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequestCreate'
+            example:
+              purpose: Online Course Fee
+              amount: '499.00'
+              buyer_name: John Doe
+              email: john@example.com
+              phone: '+919876543210'
+              send_email: true
+              send_sms: false
+              redirect_url: https://example.com/payment-success
+              webhook: https://example.com/webhook/instamojo
+              allow_repeated_payments: false
+      responses:
+        '200':
+          description: Payment request created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  payment_request:
+                    $ref: '#/components/schemas/PaymentRequest'
+        '400':
+          description: Bad request - validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /payment_requests/{id}/:
+    get:
+      tags:
+      - Payment Requests
+      summary: Get a Payment Request
+      description: Retrieve the status and details of a specific payment request by ID.
+      operationId: getPaymentRequest
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the payment request
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Payment request details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  payment_request:
+                    $ref: '#/components/schemas/PaymentRequestDetail'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /payment_requests/{id}/{payment_id}/:
+    get:
+      tags:
+      - Payment Requests
+      summary: Get Payment Details for a Payment Request
+      description: Retrieve details of a specific payment associated with a payment request.
+      operationId: getPaymentForRequest
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the payment request
+        required: true
+        schema:
+          type: string
+      - name: payment_id
+        in: path
+        description: Unique ID of the payment
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Payment details within the payment request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  payment_request:
+                    allOf:
+                    - $ref: '#/components/schemas/PaymentRequest'
+                    - type: object
+                      properties:
+                        payment:
+                          $ref: '#/components/schemas/Payment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    PaymentRequestDetail:
+      allOf:
+      - $ref: '#/components/schemas/PaymentRequest'
+      - type: object
+        properties:
+          payments:
+            type: array
+            description: List of payments made against this payment request
+            items:
+              $ref: '#/components/schemas/Payment'
+    PaymentRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique payment request ID
+          example: ee5c9bf3e75445a8a7b8c3a7e2b4c9d1
+        purpose:
+          type: string
+          description: Purpose of the payment
+        amount:
+          type: string
+          description: Requested amount in INR
+          example: '499.00'
+        status:
+          type: string
+          description: Current status of the payment request
+          enum:
+          - Pending
+          - Completed
+          - Failed
+          - Expired
+        send_email:
+          type: boolean
+        send_sms:
+          type: boolean
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        buyer_name:
+          type: string
+        redirect_url:
+          type: string
+          format: uri
+        webhook:
+          type: string
+          format: uri
+        allow_repeated_payments:
+          type: boolean
+        longurl:
+          type: string
+          format: uri
+          description: The payment URL to share with the buyer
+          example: https://www.instamojo.com/@merchant/ee5c9bf3e75445
+        created_at:
+          type: string
+          format: date-time
+        modified_at:
+          type: string
+          format: date-time
+    PaymentRequestCreate:
+      type: object
+      required:
+      - purpose
+      - amount
+      properties:
+        purpose:
+          type: string
+          description: Purpose or description of the payment
+          maxLength: 255
+        amount:
+          type: string
+          description: Amount to be paid in INR (e.g. "499.00")
+          pattern: ^\d+(\.\d{1,2})?$
+        buyer_name:
+          type: string
+          description: Name of the buyer (used for prefilling form)
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          description: Email address of the buyer
+        phone:
+          type: string
+          description: Phone number of the buyer (with country code)
+          example: '+919876543210'
+        send_email:
+          type: boolean
+          description: Send payment link to buyer via email
+          default: false
+        send_sms:
+          type: boolean
+          description: Send payment link to buyer via SMS
+          default: false
+        redirect_url:
+          type: string
+          format: uri
+          description: URL to redirect buyer after payment (success or failure)
+        webhook:
+          type: string
+          format: uri
+          description: Webhook URL to receive payment notifications
+        allow_repeated_payments:
+          type: boolean
+          description: Allow multiple successful payments on this request
+          default: true
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
+    Payment:
+      type: object
+      properties:
+        payment_id:
+          type: string
+          description: Unique payment ID
+          example: MOJO5a06005J21512345
+        quantity:
+          type: integer
+          description: Quantity purchased
+          example: 1
+        status:
+          type: string
+          description: Status of the payment
+          enum:
+          - Credit
+          - Failed
+          - Pending
+        currency:
+          type: string
+          description: Currency code
+          example: INR
+        amount:
+          type: string
+          description: Amount paid
+          example: '499.00'
+        buyer_name:
+          type: string
+          description: Name of the buyer
+        buyer_email:
+          type: string
+          format: email
+          description: Email of the buyer
+        buyer_phone:
+          type: string
+          description: Phone number of the buyer
+        instrument_type:
+          type: string
+          description: Payment instrument used
+          enum:
+          - CREDIT_CARD
+          - DEBIT_CARD
+          - NET_BANKING
+          - WALLET
+          - UPI
+          - EMI
+        billing_instrument:
+          type: string
+          description: Specific billing instrument name
+        failure_reason:
+          type: string
+          description: Reason for payment failure (if applicable)
+          nullable: true
+        payment_request:
+          type: string
+          description: ID of the associated payment request
+        created_at:
+          type: string
+          format: date-time
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth2 Bearer token obtained from /oauth2/token/

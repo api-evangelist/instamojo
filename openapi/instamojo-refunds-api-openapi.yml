@@ -1,0 +1,235 @@
+openapi: 3.0.3
+info:
+  title: Instamojo Payments Authentication Refunds API
+  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
+
+    '
+  version: '2.0'
+  termsOfService: https://www.instamojo.com/terms/
+  contact:
+    name: Instamojo Support
+    url: https://support.instamojo.com/
+  license:
+    name: Proprietary
+    url: https://www.instamojo.com/terms/
+servers:
+- url: https://api.instamojo.com/v2
+  description: Production server
+- url: https://test.instamojo.com/v2
+  description: Sandbox/Test server
+security:
+- BearerAuth: []
+tags:
+- name: Refunds
+  description: Create and retrieve refunds
+paths:
+  /refunds/:
+    get:
+      tags:
+      - Refunds
+      summary: List Refunds
+      description: Retrieve a list of all refunds.
+      operationId: listRefunds
+      parameters:
+      - name: limit
+        in: query
+        description: Number of results per page
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+      - name: page
+        in: query
+        description: Page number for pagination
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+      responses:
+        '200':
+          description: List of refunds
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  refunds:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Refund'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      tags:
+      - Refunds
+      summary: Create a Refund
+      description: 'Initiate a refund for a payment. You can specify a partial refund amount or leave it blank to refund the full transaction amount.
+
+        '
+      operationId: createRefund
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefundCreate'
+            example:
+              payment_id: MOJO5a06005J21512345
+              type: RFD
+              body: Customer requested a refund within 7 days.
+              refund_amount: '250.00'
+      responses:
+        '200':
+          description: Refund created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  refund:
+                    $ref: '#/components/schemas/Refund'
+        '400':
+          description: Bad request - validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /refunds/{id}/:
+    get:
+      tags:
+      - Refunds
+      summary: Get Refund Details
+      description: Retrieve details of a specific refund by its ID.
+      operationId: getRefund
+      parameters:
+      - name: id
+        in: path
+        description: Unique refund ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Refund details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  refund:
+                    $ref: '#/components/schemas/Refund'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Refund:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique refund ID
+          example: C5c0751269
+        payment_id:
+          type: string
+          description: Associated payment ID
+        status:
+          type: string
+          description: Refund status
+          enum:
+          - Pending
+          - Processed
+          - Rejected
+        type:
+          type: string
+          description: Refund type code
+        body:
+          type: string
+          description: Refund reason
+        refund_amount:
+          type: string
+          description: Amount being refunded
+        total_amount:
+          type: string
+          description: Total transaction amount
+        created_at:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
+    RefundCreate:
+      type: object
+      required:
+      - payment_id
+      - type
+      - body
+      properties:
+        payment_id:
+          type: string
+          description: Payment ID for which refund is being requested
+          example: MOJO5a06005J21512345
+        type:
+          type: string
+          description: 'Short-code identifying the refund type: RFD = Refund, TNR = Test Refund, QFL = Quality/Fulfillment Issue, QNR = Quality Not as Represented, EWN = Event/Workshop Not Held, TAN = Technical Issue/App Not Working, PTH = Paid to Wrong Handle
+
+            '
+          enum:
+          - RFD
+          - TNR
+          - QFL
+          - QNR
+          - EWN
+          - TAN
+          - PTH
+        body:
+          type: string
+          description: Explanation for the refund request
+        refund_amount:
+          type: string
+          description: Partial refund amount in INR. Defaults to full transaction amount.
+          pattern: ^\d+(\.\d{1,2})?$
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth2 Bearer token obtained from /oauth2/token/

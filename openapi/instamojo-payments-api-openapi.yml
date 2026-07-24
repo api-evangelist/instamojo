@@ -1,0 +1,151 @@
+openapi: 3.0.3
+info:
+  title: Instamojo Authentication Payments API
+  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
+
+    '
+  version: '2.0'
+  termsOfService: https://www.instamojo.com/terms/
+  contact:
+    name: Instamojo Support
+    url: https://support.instamojo.com/
+  license:
+    name: Proprietary
+    url: https://www.instamojo.com/terms/
+servers:
+- url: https://api.instamojo.com/v2
+  description: Production server
+- url: https://test.instamojo.com/v2
+  description: Sandbox/Test server
+security:
+- BearerAuth: []
+tags:
+- name: Payments
+  description: Retrieve payment details
+paths:
+  /payments/{payment_id}/:
+    get:
+      tags:
+      - Payments
+      summary: Get Payment Details
+      description: Retrieve details of a specific payment by its payment ID.
+      operationId: getPayment
+      parameters:
+      - name: payment_id
+        in: path
+        description: Unique payment ID (returned in redirect URL and webhook)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Payment details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  payment:
+                    $ref: '#/components/schemas/Payment'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
+    Payment:
+      type: object
+      properties:
+        payment_id:
+          type: string
+          description: Unique payment ID
+          example: MOJO5a06005J21512345
+        quantity:
+          type: integer
+          description: Quantity purchased
+          example: 1
+        status:
+          type: string
+          description: Status of the payment
+          enum:
+          - Credit
+          - Failed
+          - Pending
+        currency:
+          type: string
+          description: Currency code
+          example: INR
+        amount:
+          type: string
+          description: Amount paid
+          example: '499.00'
+        buyer_name:
+          type: string
+          description: Name of the buyer
+        buyer_email:
+          type: string
+          format: email
+          description: Email of the buyer
+        buyer_phone:
+          type: string
+          description: Phone number of the buyer
+        instrument_type:
+          type: string
+          description: Payment instrument used
+          enum:
+          - CREDIT_CARD
+          - DEBIT_CARD
+          - NET_BANKING
+          - WALLET
+          - UPI
+          - EMI
+        billing_instrument:
+          type: string
+          description: Specific billing instrument name
+        failure_reason:
+          type: string
+          description: Reason for payment failure (if applicable)
+          nullable: true
+        payment_request:
+          type: string
+          description: ID of the associated payment request
+        created_at:
+          type: string
+          format: date-time
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth2 Bearer token obtained from /oauth2/token/

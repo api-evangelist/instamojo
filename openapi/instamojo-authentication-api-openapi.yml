@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: Instamojo Payments Authentication API
+  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
+
+    '
+  version: '2.0'
+  termsOfService: https://www.instamojo.com/terms/
+  contact:
+    name: Instamojo Support
+    url: https://support.instamojo.com/
+  license:
+    name: Proprietary
+    url: https://www.instamojo.com/terms/
+servers:
+- url: https://api.instamojo.com/v2
+  description: Production server
+- url: https://test.instamojo.com/v2
+  description: Sandbox/Test server
+security:
+- BearerAuth: []
+tags:
+- name: Authentication
+  description: OAuth2 token generation for API access
+paths:
+  /oauth2/token/:
+    post:
+      tags:
+      - Authentication
+      summary: Generate Access Token
+      description: 'Generate an OAuth2 access token using client credentials. Provide client_id and client_secret to receive a bearer token for subsequent API calls.
+
+        '
+      operationId: generateAccessToken
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                  description: OAuth2 grant type
+                client_id:
+                  type: string
+                  description: Your Instamojo client ID
+                client_secret:
+                  type: string
+                  description: Your Instamojo client secret
+      responses:
+        '200':
+          description: Access token generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+              example:
+                access_token: c4e17ad5cc4e7b43b2f5f9ab9ca6c928
+                token_type: Bearer
+                expires_in: 36000
+                scope: read write
+        '400':
+          description: Invalid client credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    AccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: Bearer token for API authentication
+        token_type:
+          type: string
+          example: Bearer
+        expires_in:
+          type: integer
+          description: Token expiry in seconds
+          example: 36000
+        scope:
+          type: string
+          example: read write
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth2 Bearer token obtained from /oauth2/token/
