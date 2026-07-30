@@ -1,7 +1,20 @@
 aid: instamojo
 name: Instamojo
 description: Indian digital payments and e-commerce platform with a REST API for payment requests, refunds, store products, order management, and mobile payment links. Trusted by over 1.2 million Indian small businesses.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/instamojo.png
 url: https://raw.githubusercontent.com/api-evangelist/instamojo/refs/heads/main/apis.yml
 created: "2026-06-13"
 modified: "2026-06-13"
@@ -16,23 +29,66 @@ tags:
   - Orders
 
 apis:
-
-  - name: Instamojo Payments API
-    description: REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.instamojo.com/
-    baseURL: https://api.instamojo.com/v2/
-    tags:
-      - Payments
-      - Payment Requests
-      - Refunds
-      - Orders
-    properties:
-      - type: Documentation
-        url: https://docs.instamojo.com/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/instamojo/refs/heads/main/openapi/instamojo-payments-api.yml
-
+- aid: instamojo:instamojo-authentication-api
+  name: Instamojo Authentication API
+  description: OAuth2 token generation for API access
+  humanURL: https://docs.instamojo.com/
+  baseURL: https://api.instamojo.com/v2/
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/instamojo-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.instamojo.com/
+- aid: instamojo:instamojo-orders-api
+  name: Instamojo Orders API
+  description: Create and manage orders
+  humanURL: https://docs.instamojo.com/
+  baseURL: https://api.instamojo.com/v2/
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/instamojo-orders-api-openapi.yml
+  - type: Documentation
+    url: https://docs.instamojo.com/
+- aid: instamojo:instamojo-payment-requests-api
+  name: Instamojo Payment Requests API
+  description: Create and manage payment requests
+  humanURL: https://docs.instamojo.com/
+  baseURL: https://api.instamojo.com/v2/
+  tags:
+  - Payment Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/instamojo-payment-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.instamojo.com/
+- aid: instamojo:instamojo-payments-api
+  name: Instamojo Payments API
+  description: Retrieve payment details
+  humanURL: https://docs.instamojo.com/
+  baseURL: https://api.instamojo.com/v2/
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/instamojo-payments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.instamojo.com/
+- aid: instamojo:instamojo-refunds-api
+  name: Instamojo Refunds API
+  description: Create and retrieve refunds
+  humanURL: https://docs.instamojo.com/
+  baseURL: https://api.instamojo.com/v2/
+  tags:
+  - Refunds
+  properties:
+  - type: OpenAPI
+    url: openapi/instamojo-refunds-api-openapi.yml
+  - type: Documentation
+    url: https://docs.instamojo.com/
 common:
 
   - type: AgenticAccess
