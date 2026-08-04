@@ -1,0 +1,22 @@
+{
+  "provider": "instamojo",
+  "sources": [
+    "instamojo-authentication-api-openapi.yml",
+    "instamojo-orders-api-openapi.yml",
+    "instamojo-payment-requests-api-openapi.yml",
+    "instamojo-payments-api-openapi.yml",
+    "instamojo-refunds-api-openapi.yml"
+  ],
+  "outputs": [
+    "instamojo-authentication-api-openapi.yml",
+    "instamojo-orders-api-openapi.yml",
+    "instamojo-payment-requests-api-openapi.yml",
+    "instamojo-payments-api-openapi.yml",
+    "instamojo-refunds-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
