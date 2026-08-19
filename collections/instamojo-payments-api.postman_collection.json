@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "c8203de8-3b18-42ea-973f-444ccbe22053",
+      "name": "Payments",
+      "description": {
+        "content": "Retrieve payment details",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f174253-d845-4a4d-892d-58ecca97280c",
+          "name": "Get Payment Details",
+          "request": {
+            "name": "Get Payment Details",
+            "description": {
+              "content": "Retrieve details of a specific payment by its payment ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payments",
+                ":payment_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payment_id",
+                  "description": "(Required) Unique payment ID (returned in redirect URL and webhook)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1979ae2-795a-4a64-b697-93fa65a45682",
+              "name": "Payment details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Unique payment ID (returned in redirect URL and webhook)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"payment\": {\n    \"payment_id\": \"MOJO5a06005J21512345\",\n    \"quantity\": 1,\n    \"status\": \"Credit\",\n    \"currency\": \"INR\",\n    \"amount\": \"499.00\",\n    \"buyer_name\": \"string\",\n    \"buyer_email\": \"Ija7Ugbu7g7ehjN@DBLcGLpiPvaHbldcGjteSNdSboV.xrkq\",\n    \"buyer_phone\": \"string\",\n    \"instrument_type\": \"UPI\",\n    \"billing_instrument\": \"string\",\n    \"failure_reason\": \"string\",\n    \"payment_request\": \"string\",\n    \"created_at\": \"1947-09-30T14:46:17.701Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "252dea91-60d0-450d-8a63-71c00fdee7ff",
+              "name": "Authentication required or token expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Unique payment ID (returned in redirect URL and webhook)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"errors\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8e8ca45-cb56-4eab-b013-2310a24ca8ce",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payments",
+                    ":payment_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payment_id",
+                      "description": "(Required) Unique payment ID (returned in redirect URL and webhook)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"errors\": {\n    \"key_0\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_1\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.instamojo.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9e0733e2-e2c8-4aec-9b95-13bafdb70806",
+    "name": "Instamojo Authentication Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.\n\n\nContact Support:\n Name: Instamojo Support",
+      "type": "text/plain"
+    }
+  }
+}

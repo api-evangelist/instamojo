@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Instamojo Payments Authentication Orders API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an Order Using Payment Request ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.instamojo.com/v2/orders/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an order using an existing Payment Request ID. This endpoint is primarily used with the Instamojo SDK flow.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

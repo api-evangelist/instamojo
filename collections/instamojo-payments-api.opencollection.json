@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Instamojo Authentication Payments API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Payment Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.instamojo.com/v2/payments/:payment_id/",
+            "params": [
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique payment ID (returned in redirect URL and webhook)"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific payment by its payment ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

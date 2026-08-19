@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Instamojo Payments Authentication Payment Requests API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Payment Requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.instamojo.com/v2/payment_requests/",
+            "params": [
+              {
+                "name": "min_created_at",
+                "value": "",
+                "type": "query",
+                "description": "Filter payment requests created on or after this date (YYYY-MM-DD)"
+              },
+              {
+                "name": "max_created_at",
+                "value": "",
+                "type": "query",
+                "description": "Filter payment requests created on or before this date (YYYY-MM-DD)"
+              },
+              {
+                "name": "min_modified_at",
+                "value": "",
+                "type": "query",
+                "description": "Filter payment requests modified on or after this date (YYYY-MM-DD)"
+              },
+              {
+                "name": "max_modified_at",
+                "value": "",
+                "type": "query",
+                "description": "Filter payment requests modified on or before this date (YYYY-MM-DD)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              }
+            ]
+          },
+          "docs": "Get a list of all payment requests, optionally filtered by date range."
+        },
+        {
+          "info": {
+            "name": "Create a Payment Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.instamojo.com/v2/payment_requests/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new payment request by specifying a purpose and amount. Returns a Payment Request ID and a URL to redirect the buyer to.\n"
+        },
+        {
+          "info": {
+            "name": "Get a Payment Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.instamojo.com/v2/payment_requests/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of the payment request"
+              }
+            ]
+          },
+          "docs": "Retrieve the status and details of a specific payment request by ID."
+        },
+        {
+          "info": {
+            "name": "Get Payment Details for a Payment Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.instamojo.com/v2/payment_requests/:id/:payment_id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of the payment request"
+              },
+              {
+                "name": "payment_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ID of the payment"
+              }
+            ]
+          },
+          "docs": "Retrieve details of a specific payment associated with a payment request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
