@@ -26,6 +26,14 @@ tags:
   - Payment Gateway
   - Payment Links
   - Refunds
+  - Order
+tags_raw:
+  - Payments
+  - E-Commerce
+  - India
+  - Payment Gateway
+  - Payment Links
+  - Refunds
   - Orders
 
 apis:
@@ -47,6 +55,8 @@ apis:
   humanURL: https://docs.instamojo.com/
   baseURL: https://api.instamojo.com/v2/
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
