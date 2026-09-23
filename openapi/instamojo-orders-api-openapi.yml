@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Instamojo Payments Authentication Orders API
-  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
-
-    '
+  title: Instamojo Payments Orders API
+  description: REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
   version: '2.0'
   termsOfService: https://www.instamojo.com/terms/
   contact:
@@ -28,9 +26,7 @@ paths:
       tags:
       - Orders
       summary: Create an Order Using Payment Request ID
-      description: 'Create an order using an existing Payment Request ID. This endpoint is primarily used with the Instamojo SDK flow.
-
-        '
+      description: Create an order using an existing Payment Request ID. This endpoint is primarily used with the Instamojo SDK flow.
       operationId: createOrder
       requestBody:
         required: true
@@ -67,22 +63,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        success:
-          type: boolean
-          example: false
-        message:
-          type: string
-          description: Error message describing what went wrong
-        errors:
-          type: object
-          description: Field-level validation errors
-          additionalProperties:
-            type: array
-            items:
-              type: string
     Order:
       type: object
       properties:
@@ -105,6 +85,22 @@ components:
         created_at:
           type: string
           format: date-time
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
   responses:
     Unauthorized:
       description: Authentication required or token expired

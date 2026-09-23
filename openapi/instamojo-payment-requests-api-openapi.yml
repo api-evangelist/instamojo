@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Instamojo Payments Authentication Payment Requests API
-  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
-
-    '
+  title: Instamojo Payments Payment Requests API
+  description: REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
   version: '2.0'
   termsOfService: https://www.instamojo.com/terms/
   contact:
@@ -95,9 +93,7 @@ paths:
       tags:
       - Payment Requests
       summary: Create a Payment Request
-      description: 'Create a new payment request by specifying a purpose and amount. Returns a Payment Request ID and a URL to redirect the buyer to.
-
-        '
+      description: Create a new payment request by specifying a purpose and amount. Returns a Payment Request ID and a URL to redirect the buyer to.
       operationId: createPaymentRequest
       requestBody:
         required: true
@@ -212,6 +208,112 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    Payment:
+      type: object
+      properties:
+        payment_id:
+          type: string
+          description: Unique payment ID
+          example: MOJO5a06005J21512345
+        quantity:
+          type: integer
+          description: Quantity purchased
+          example: 1
+        status:
+          type: string
+          description: Status of the payment
+          enum:
+          - Credit
+          - Failed
+          - Pending
+        currency:
+          type: string
+          description: Currency code
+          example: INR
+        amount:
+          type: string
+          description: Amount paid
+          example: '499.00'
+        buyer_name:
+          type: string
+          description: Name of the buyer
+        buyer_email:
+          type: string
+          format: email
+          description: Email of the buyer
+        buyer_phone:
+          type: string
+          description: Phone number of the buyer
+        instrument_type:
+          type: string
+          description: Payment instrument used
+          enum:
+          - CREDIT_CARD
+          - DEBIT_CARD
+          - NET_BANKING
+          - WALLET
+          - UPI
+          - EMI
+        billing_instrument:
+          type: string
+          description: Specific billing instrument name
+        failure_reason:
+          type:
+          - string
+          - 'null'
+          description: Reason for payment failure (if applicable)
+        payment_request:
+          type: string
+          description: ID of the associated payment request
+        created_at:
+          type: string
+          format: date-time
+    PaymentRequestCreate:
+      type: object
+      required:
+      - purpose
+      - amount
+      properties:
+        purpose:
+          type: string
+          description: Purpose or description of the payment
+          maxLength: 255
+        amount:
+          type: string
+          description: Amount to be paid in INR (e.g. "499.00")
+          pattern: ^\d+(\.\d{1,2})?$
+        buyer_name:
+          type: string
+          description: Name of the buyer (used for prefilling form)
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          description: Email address of the buyer
+        phone:
+          type: string
+          description: Phone number of the buyer (with country code)
+          example: '+919876543210'
+        send_email:
+          type: boolean
+          description: Send payment link to buyer via email
+          default: false
+        send_sms:
+          type: boolean
+          description: Send payment link to buyer via SMS
+          default: false
+        redirect_url:
+          type: string
+          format: uri
+          description: URL to redirect buyer after payment (success or failure)
+        webhook:
+          type: string
+          format: uri
+          description: Webhook URL to receive payment notifications
+        allow_repeated_payments:
+          type: boolean
+          description: Allow multiple successful payments on this request
+          default: true
     PaymentRequestDetail:
       allOf:
       - $ref: '#/components/schemas/PaymentRequest'
@@ -274,52 +376,6 @@ components:
         modified_at:
           type: string
           format: date-time
-    PaymentRequestCreate:
-      type: object
-      required:
-      - purpose
-      - amount
-      properties:
-        purpose:
-          type: string
-          description: Purpose or description of the payment
-          maxLength: 255
-        amount:
-          type: string
-          description: Amount to be paid in INR (e.g. "499.00")
-          pattern: ^\d+(\.\d{1,2})?$
-        buyer_name:
-          type: string
-          description: Name of the buyer (used for prefilling form)
-          maxLength: 100
-        email:
-          type: string
-          format: email
-          description: Email address of the buyer
-        phone:
-          type: string
-          description: Phone number of the buyer (with country code)
-          example: '+919876543210'
-        send_email:
-          type: boolean
-          description: Send payment link to buyer via email
-          default: false
-        send_sms:
-          type: boolean
-          description: Send payment link to buyer via SMS
-          default: false
-        redirect_url:
-          type: string
-          format: uri
-          description: URL to redirect buyer after payment (success or failure)
-        webhook:
-          type: string
-          format: uri
-          description: Webhook URL to receive payment notifications
-        allow_repeated_payments:
-          type: boolean
-          description: Allow multiple successful payments on this request
-          default: true
     Error:
       type: object
       properties:
@@ -336,74 +392,15 @@ components:
             type: array
             items:
               type: string
-    Payment:
-      type: object
-      properties:
-        payment_id:
-          type: string
-          description: Unique payment ID
-          example: MOJO5a06005J21512345
-        quantity:
-          type: integer
-          description: Quantity purchased
-          example: 1
-        status:
-          type: string
-          description: Status of the payment
-          enum:
-          - Credit
-          - Failed
-          - Pending
-        currency:
-          type: string
-          description: Currency code
-          example: INR
-        amount:
-          type: string
-          description: Amount paid
-          example: '499.00'
-        buyer_name:
-          type: string
-          description: Name of the buyer
-        buyer_email:
-          type: string
-          format: email
-          description: Email of the buyer
-        buyer_phone:
-          type: string
-          description: Phone number of the buyer
-        instrument_type:
-          type: string
-          description: Payment instrument used
-          enum:
-          - CREDIT_CARD
-          - DEBIT_CARD
-          - NET_BANKING
-          - WALLET
-          - UPI
-          - EMI
-        billing_instrument:
-          type: string
-          description: Specific billing instrument name
-        failure_reason:
-          type: string
-          description: Reason for payment failure (if applicable)
-          nullable: true
-        payment_request:
-          type: string
-          description: ID of the associated payment request
-        created_at:
-          type: string
-          format: date-time
   responses:
-    Unauthorized:
-      description: Authentication required or token expired
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Authentication required or token expired
       content:
         application/json:
           schema:

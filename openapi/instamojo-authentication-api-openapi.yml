@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Instamojo Payments Authentication API
-  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
-
-    '
+  description: REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
   version: '2.0'
   termsOfService: https://www.instamojo.com/terms/
   contact:
@@ -28,9 +26,7 @@ paths:
       tags:
       - Authentication
       summary: Generate Access Token
-      description: 'Generate an OAuth2 access token using client credentials. Provide client_id and client_secret to receive a bearer token for subsequent API calls.
-
-        '
+      description: Generate an OAuth2 access token using client credentials. Provide client_id and client_secret to receive a bearer token for subsequent API calls.
       operationId: generateAccessToken
       security: []
       requestBody:

@@ -1,11 +1,7 @@
 {
   "provider": "instamojo",
   "sources": [
-    "instamojo-authentication-api-openapi.yml",
-    "instamojo-orders-api-openapi.yml",
-    "instamojo-payment-requests-api-openapi.yml",
-    "instamojo-payments-api-openapi.yml",
-    "instamojo-refunds-api-openapi.yml"
+    "_original/instamojo-payments-api.yml"
   ],
   "outputs": [
     "instamojo-authentication-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "instamojo-payments-api.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "instamojo-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "instamojo-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "instamojo-payment-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "instamojo-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "instamojo-refunds-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

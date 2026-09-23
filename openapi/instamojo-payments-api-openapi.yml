@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Instamojo Authentication Payments API
-  description: 'REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
-
-    '
+  title: Instamojo Payments API
+  description: REST API for creating and managing payment requests, processing refunds, retrieving payment details, and managing orders for Indian businesses. Instamojo is trusted by over 1.2 million Indian small businesses.
   version: '2.0'
   termsOfService: https://www.instamojo.com/terms/
   contact:
@@ -55,23 +53,20 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        success:
-          type: boolean
-          example: false
-        message:
-          type: string
-          description: Error message describing what went wrong
-        errors:
-          type: object
-          description: Field-level validation errors
-          additionalProperties:
-            type: array
-            items:
-              type: string
     Payment:
       type: object
       properties:
@@ -122,28 +117,32 @@ components:
           type: string
           description: Specific billing instrument name
         failure_reason:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Reason for payment failure (if applicable)
-          nullable: true
         payment_request:
           type: string
           description: ID of the associated payment request
         created_at:
           type: string
           format: date-time
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
   securitySchemes:
     BearerAuth:
       type: http
