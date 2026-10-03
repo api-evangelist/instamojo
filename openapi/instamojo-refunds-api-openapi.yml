@@ -131,7 +131,51 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    Unauthorized:
+      description: Authentication required or token expired
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    RefundCreate:
+      type: object
+      required:
+      - payment_id
+      - type
+      - body
+      properties:
+        payment_id:
+          type: string
+          description: Payment ID for which refund is being requested
+          example: MOJO5a06005J21512345
+        type:
+          type: string
+          description: 'Short-code identifying the refund type: RFD = Refund, TNR = Test Refund, QFL = Quality/Fulfillment Issue, QNR = Quality Not as Represented, EWN = Event/Workshop Not Held, TAN = Technical Issue/App Not Working, PTH = Paid to Wrong Handle
+
+            '
+          enum:
+          - RFD
+          - TNR
+          - QFL
+          - QNR
+          - EWN
+          - TAN
+          - PTH
+        body:
+          type: string
+          description: Explanation for the refund request
+        refund_amount:
+          type: string
+          description: Partial refund amount in INR. Defaults to full transaction amount.
+          pattern: ^\d+(\.\d{1,2})?$
     Refund:
       type: object
       properties:
@@ -164,37 +208,6 @@ components:
         created_at:
           type: string
           format: date-time
-    RefundCreate:
-      type: object
-      required:
-      - payment_id
-      - type
-      - body
-      properties:
-        payment_id:
-          type: string
-          description: Payment ID for which refund is being requested
-          example: MOJO5a06005J21512345
-        type:
-          type: string
-          description: 'Short-code identifying the refund type: RFD = Refund, TNR = Test Refund, QFL = Quality/Fulfillment Issue, QNR = Quality Not as Represented, EWN = Event/Workshop Not Held, TAN = Technical Issue/App Not Working, PTH = Paid to Wrong Handle
-
-            '
-          enum:
-          - RFD
-          - TNR
-          - QFL
-          - QNR
-          - EWN
-          - TAN
-          - PTH
-        body:
-          type: string
-          description: Explanation for the refund request
-        refund_amount:
-          type: string
-          description: Partial refund amount in INR. Defaults to full transaction amount.
-          pattern: ^\d+(\.\d{1,2})?$
     Error:
       type: object
       properties:
@@ -211,19 +224,6 @@ components:
             type: array
             items:
               type: string
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication required or token expired
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     BearerAuth:
       type: http
