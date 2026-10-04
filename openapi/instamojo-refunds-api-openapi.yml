@@ -145,37 +145,22 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
-    RefundCreate:
+    Error:
       type: object
-      required:
-      - payment_id
-      - type
-      - body
       properties:
-        payment_id:
+        success:
+          type: boolean
+          example: false
+        message:
           type: string
-          description: Payment ID for which refund is being requested
-          example: MOJO5a06005J21512345
-        type:
-          type: string
-          description: 'Short-code identifying the refund type: RFD = Refund, TNR = Test Refund, QFL = Quality/Fulfillment Issue, QNR = Quality Not as Represented, EWN = Event/Workshop Not Held, TAN = Technical Issue/App Not Working, PTH = Paid to Wrong Handle
-
-            '
-          enum:
-          - RFD
-          - TNR
-          - QFL
-          - QNR
-          - EWN
-          - TAN
-          - PTH
-        body:
-          type: string
-          description: Explanation for the refund request
-        refund_amount:
-          type: string
-          description: Partial refund amount in INR. Defaults to full transaction amount.
-          pattern: ^\d+(\.\d{1,2})?$
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
     Refund:
       type: object
       properties:
@@ -208,22 +193,37 @@ components:
         created_at:
           type: string
           format: date-time
-    Error:
+    RefundCreate:
       type: object
+      required:
+      - payment_id
+      - type
+      - body
       properties:
-        success:
-          type: boolean
-          example: false
-        message:
+        payment_id:
           type: string
-          description: Error message describing what went wrong
-        errors:
-          type: object
-          description: Field-level validation errors
-          additionalProperties:
-            type: array
-            items:
-              type: string
+          description: Payment ID for which refund is being requested
+          example: MOJO5a06005J21512345
+        type:
+          type: string
+          description: 'Short-code identifying the refund type: RFD = Refund, TNR = Test Refund, QFL = Quality/Fulfillment Issue, QNR = Quality Not as Represented, EWN = Event/Workshop Not Held, TAN = Technical Issue/App Not Working, PTH = Paid to Wrong Handle
+
+            '
+          enum:
+          - RFD
+          - TNR
+          - QFL
+          - QNR
+          - EWN
+          - TAN
+          - PTH
+        body:
+          type: string
+          description: Explanation for the refund request
+        refund_amount:
+          type: string
+          description: Partial refund amount in INR. Defaults to full transaction amount.
+          pattern: ^\d+(\.\d{1,2})?$
   securitySchemes:
     BearerAuth:
       type: http

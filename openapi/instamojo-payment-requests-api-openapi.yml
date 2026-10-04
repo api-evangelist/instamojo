@@ -208,6 +208,32 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    PaymentRequestDetail:
+      allOf:
+      - $ref: '#/components/schemas/PaymentRequest'
+      - type: object
+        properties:
+          payments:
+            type: array
+            description: List of payments made against this payment request
+            items:
+              $ref: '#/components/schemas/Payment'
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
     Payment:
       type: object
       properties:
@@ -314,16 +340,6 @@ components:
           type: boolean
           description: Allow multiple successful payments on this request
           default: true
-    PaymentRequestDetail:
-      allOf:
-      - $ref: '#/components/schemas/PaymentRequest'
-      - type: object
-        properties:
-          payments:
-            type: array
-            description: List of payments made against this payment request
-            items:
-              $ref: '#/components/schemas/Payment'
     PaymentRequest:
       type: object
       properties:
@@ -376,22 +392,6 @@ components:
         modified_at:
           type: string
           format: date-time
-    Error:
-      type: object
-      properties:
-        success:
-          type: boolean
-          example: false
-        message:
-          type: string
-          description: Error message describing what went wrong
-        errors:
-          type: object
-          description: Field-level validation errors
-          additionalProperties:
-            type: array
-            items:
-              type: string
   responses:
     Unauthorized:
       description: Authentication required or token expired
