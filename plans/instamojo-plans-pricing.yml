@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: Instamojo Plans and Pricing
 description: Pricing plans for Instamojo online store, smart pages, and payment links products with per-transaction fees for Indian businesses.
 url: https://www.instamojo.com/pricing/
@@ -106,3 +110,68 @@ notes:
   - 18% GST is charged on all transaction fees
   - Corporate card transactions are charged at 3% + ₹3 per transaction
   - Standard payment gateway rate is 2% + ₹3 per transaction
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  - subscription
+  units: []
+  plans:
+  - name: Online Store Lite
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Online Store Starter
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - year
+  - name: Online Store Growth
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - year
+  - name: Online Store Do-It-For-Me
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods:
+    - term
+  - name: Smart Pages Basic
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Smart Pages Pro
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - year
+  - name: Payment Links Quick
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Payment Links Smart
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - year
