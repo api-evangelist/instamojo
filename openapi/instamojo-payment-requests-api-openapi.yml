@@ -208,32 +208,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    PaymentRequestDetail:
-      allOf:
-      - $ref: '#/components/schemas/PaymentRequest'
-      - type: object
-        properties:
-          payments:
-            type: array
-            description: List of payments made against this payment request
-            items:
-              $ref: '#/components/schemas/Payment'
-    Error:
-      type: object
-      properties:
-        success:
-          type: boolean
-          example: false
-        message:
-          type: string
-          description: Error message describing what went wrong
-        errors:
-          type: object
-          description: Field-level validation errors
-          additionalProperties:
-            type: array
-            items:
-              type: string
     Payment:
       type: object
       properties:
@@ -294,52 +268,6 @@ components:
         created_at:
           type: string
           format: date-time
-    PaymentRequestCreate:
-      type: object
-      required:
-      - purpose
-      - amount
-      properties:
-        purpose:
-          type: string
-          description: Purpose or description of the payment
-          maxLength: 255
-        amount:
-          type: string
-          description: Amount to be paid in INR (e.g. "499.00")
-          pattern: ^\d+(\.\d{1,2})?$
-        buyer_name:
-          type: string
-          description: Name of the buyer (used for prefilling form)
-          maxLength: 100
-        email:
-          type: string
-          format: email
-          description: Email address of the buyer
-        phone:
-          type: string
-          description: Phone number of the buyer (with country code)
-          example: '+919876543210'
-        send_email:
-          type: boolean
-          description: Send payment link to buyer via email
-          default: false
-        send_sms:
-          type: boolean
-          description: Send payment link to buyer via SMS
-          default: false
-        redirect_url:
-          type: string
-          format: uri
-          description: URL to redirect buyer after payment (success or failure)
-        webhook:
-          type: string
-          format: uri
-          description: Webhook URL to receive payment notifications
-        allow_repeated_payments:
-          type: boolean
-          description: Allow multiple successful payments on this request
-          default: true
     PaymentRequest:
       type: object
       properties:
@@ -392,15 +320,87 @@ components:
         modified_at:
           type: string
           format: date-time
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          description: Error message describing what went wrong
+        errors:
+          type: object
+          description: Field-level validation errors
+          additionalProperties:
+            type: array
+            items:
+              type: string
+    PaymentRequestCreate:
+      type: object
+      required:
+      - purpose
+      - amount
+      properties:
+        purpose:
+          type: string
+          description: Purpose or description of the payment
+          maxLength: 255
+        amount:
+          type: string
+          description: Amount to be paid in INR (e.g. "499.00")
+          pattern: ^\d+(\.\d{1,2})?$
+        buyer_name:
+          type: string
+          description: Name of the buyer (used for prefilling form)
+          maxLength: 100
+        email:
+          type: string
+          format: email
+          description: Email address of the buyer
+        phone:
+          type: string
+          description: Phone number of the buyer (with country code)
+          example: '+919876543210'
+        send_email:
+          type: boolean
+          description: Send payment link to buyer via email
+          default: false
+        send_sms:
+          type: boolean
+          description: Send payment link to buyer via SMS
+          default: false
+        redirect_url:
+          type: string
+          format: uri
+          description: URL to redirect buyer after payment (success or failure)
+        webhook:
+          type: string
+          format: uri
+          description: Webhook URL to receive payment notifications
+        allow_repeated_payments:
+          type: boolean
+          description: Allow multiple successful payments on this request
+          default: true
+    PaymentRequestDetail:
+      allOf:
+      - $ref: '#/components/schemas/PaymentRequest'
+      - type: object
+        properties:
+          payments:
+            type: array
+            description: List of payments made against this payment request
+            items:
+              $ref: '#/components/schemas/Payment'
   responses:
-    Unauthorized:
-      description: Authentication required or token expired
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Authentication required or token expired
       content:
         application/json:
           schema:

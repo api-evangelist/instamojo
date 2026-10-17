@@ -71,22 +71,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    AccessToken:
-      type: object
-      properties:
-        access_token:
-          type: string
-          description: Bearer token for API authentication
-        token_type:
-          type: string
-          example: Bearer
-        expires_in:
-          type: integer
-          description: Token expiry in seconds
-          example: 36000
-        scope:
-          type: string
-          example: read write
     Error:
       type: object
       properties:
@@ -103,6 +87,22 @@ components:
             type: array
             items:
               type: string
+    AccessToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: Bearer token for API authentication
+        token_type:
+          type: string
+          example: Bearer
+        expires_in:
+          type: integer
+          description: Token expiry in seconds
+          example: 36000
+        scope:
+          type: string
+          example: read write
   securitySchemes:
     BearerAuth:
       type: http
