@@ -1,4 +1,4 @@
-generated: '2026-10-12'
+generated: '2026-10-20'
 method: searched
 source:
 - https://zapier.com/apps/instamojo/integrations
@@ -25,336 +25,6 @@ marketplace_apps:
   actions: []
   searches: []
 edges:
-- partner_name: Teachable
-  partner: teachable
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/teachable
-  direction: third-party
-  category: Online Courses
-  partner_url: https://teachable.com/
-- partner_name: Shopify
-  partner: shopify
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/shopify
-  direction: third-party
-  category: eCommerce
-  partner_url: https://www.shopify.com/
-- partner_name: Zenler
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/zenler
-  direction: third-party
-  category: Website Builders
-  partner_url: https://newzenler.com/
-- partner_name: VBOUT
-  partner: vbout
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/vbout
-  direction: third-party
-  category: Marketing Automation
-  partner_url: https://www.vbout.com/
-- partner_name: Bigin by Zoho CRM
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/bigin
-  direction: third-party
-  category: CRM (Customer Relationship Management)
-  partner_url: https://go.zoho.com/9DS
-- partner_name: Moosend
-  partner: moosend
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/moosend
-  direction: third-party
-  category: Marketing Automation
-  partner_url: https://moosend.com/
-- partner_name: Nudgify
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/nudgify
-  direction: third-party
-  category: Marketing
-  partner_url: https://www.nudgify.com/
-- partner_name: Airtable
-  partner: airtable
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/airtable
-  direction: third-party
-  category: Databases
-  partner_url: https://airtable.com/
-- partner_name: Startquestion
-  partner: null
-  partner_match: null
-  partner_candidate: zapier
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/startquestion
-  direction: third-party
-  category: Forms & Surveys
-  partner_url: https://zapier.com/beta.startquestion.com
-- partner_name: Facebook Messenger
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/facebook-messenger
-  direction: third-party
-  category: Facebook
-  partner_url: https://www.messenger.com/
-- partner_name: TrainerCentral
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/trainercentral
-  direction: third-party
-  category: Online Courses
-  partner_url: https://myacademy.trainercentral.com/
-- partner_name: Switchy.io
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/switchyio
-  direction: third-party
-  category: URL Shortener
-  partner_url: https://switchy.io/
-- partner_name: Gurucan
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/gurucan
-  direction: third-party
-  category: Education
-  partner_url: https://gurucan.com/
-- partner_name: Kissflow Digital Workplace
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/kissflow-digital-workplace
-  direction: third-party
-  category: App Builder
-  partner_url: https://kissflow.com/
-- partner_name: Stripe (Legacy)
-  partner: stripe
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/stripe-legacy
-  direction: third-party
-  category: Payment Processing
-  partner_url: https://stripe.com/
-- partner_name: Wufoo
-  partner: wufoo
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/wufoo
-  direction: third-party
-  category: Forms & Surveys
-  partner_url: https://www.wufoo.com/
-- partner_name: MySQL
-  partner: mysql
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/mysql
-  direction: third-party
-  category: Databases
-  partner_url: https://www.mysql.com/
-- partner_name: Payhip
-  partner: payhip
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/payhip
-  direction: third-party
-  category: Commerce
-  partner_url: https://payhip.com/
-- partner_name: Kyvio 2
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/kyvio2
-  direction: third-party
-  category: Marketing
-  partner_url: https://kyvio.com/
-- partner_name: Facebook Lead Ads
-  partner: facebook-lead-ads
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/facebook-lead-ads
-  direction: third-party
-  category: Ads & Conversion
-  partner_url: https://www.facebook.com/business/ads/lead-ads
-- partner_name: Stripe
-  partner: stripe
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/stripe
-  direction: third-party
-  category: Payment Processing
-  partner_url: https://stripe.com/
-- partner_name: YouTube
-  partner: youtube
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/youtube
-  direction: third-party
-  category: Google
-  partner_url: https://www.youtube.com/
-- partner_name: Wix
-  partner: wix
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/wix
-  direction: third-party
-  category: Website Builders
-  partner_url: https://www.wix.com/
-- partner_name: TidyCal
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/tidycal
-  direction: third-party
-  category: Calendar
-  partner_url: https://tidycal.com/
-- partner_name: Ninja Forms
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/ninjaforms
-  direction: third-party
-  category: Forms & Surveys
-  partner_url: http://ninjaforms.com/extensions/zapier/
-- partner_name: Paperform
-  partner: paperform
-  partner_match: domain
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/paperform
-  direction: third-party
-  category: Forms & Surveys
-  partner_url: https://paperform.co/?utm_medium=partners&utm_source=Zapier&utm_campaign=integration_partners&utm_content=integration_page
-- partner_name: Leadpages
-  partner: leadpages
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/leadpages
-  direction: third-party
-  category: Forms & Surveys
-  partner_url: https://www.leadpages.net/
-- partner_name: SQL Server
-  partner: null
-  partner_match: null
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/sql-server
-  direction: third-party
-  category: Databases
-  partner_url: https://www.microsoft.com/sql-server
-- partner_name: Razorpay
-  partner: razorpay
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/razorpay-1
-  direction: third-party
-  category: Payment Processing
-  partner_url: https://razorpay.com/
-- partner_name: LiveChat
-  partner: livechat
-  partner_match: name-exact
-  partner_candidate: null
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/instamojo/integrations/livechat
-  direction: third-party
-  category: Customer Support
-  partner_url: https://www.livechatinc.com/?utm_source=zapier.com&utm_medium=referral&utm_campaign=zapier_listing
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -397,6 +67,366 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: WordPress plugin
+- partner_name: Teachable
+  partner: teachable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/teachable
+  direction: third-party
+  category: Online Courses
+  partner_url: https://teachable.com/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: Zenler
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/zenler
+  direction: third-party
+  category: Website Builders
+  partner_url: https://newzenler.com/
+- partner_name: VBOUT
+  partner: vbout
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/vbout
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.vbout.com/
+- partner_name: Bigin by Zoho CRM
+  partner: zoho-crm
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/bigin
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://go.zoho.com/9DS
+- partner_name: Moosend
+  partner: moosend
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/moosend
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://moosend.com/
+- partner_name: Nudgify
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/nudgify
+  direction: third-party
+  category: Marketing
+  partner_url: https://www.nudgify.com/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Startquestion
+  partner: null
+  partner_match: null
+  partner_candidate: zapier
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/startquestion
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://zapier.com/beta.startquestion.com
+- partner_name: Facebook Messenger
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/facebook-messenger
+  direction: third-party
+  category: Facebook
+  partner_url: https://www.messenger.com/
+- partner_name: TrainerCentral
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/trainercentral
+  direction: third-party
+  category: Online Courses
+  partner_url: https://myacademy.trainercentral.com/
+- partner_name: Switchy.io
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/switchyio
+  direction: third-party
+  category: URL Shortener
+  partner_url: https://switchy.io/
+- partner_name: Gurucan
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/gurucan
+  direction: third-party
+  category: Education
+  partner_url: https://gurucan.com/
+- partner_name: Kissflow Digital Workplace
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/kissflow-digital-workplace
+  direction: third-party
+  category: App Builder
+  partner_url: https://kissflow.com/
+- partner_name: Stripe (Legacy)
+  partner: stripe
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/stripe-legacy
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://stripe.com/
+- partner_name: Wufoo
+  partner: wufoo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/wufoo
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.wufoo.com/
+- partner_name: MySQL
+  partner: mysql
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/mysql
+  direction: third-party
+  category: Databases
+  partner_url: https://www.mysql.com/
+- partner_name: Payhip
+  partner: payhip
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/payhip
+  direction: third-party
+  category: Commerce
+  partner_url: https://payhip.com/
+- partner_name: Kyvio 2
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/kyvio2
+  direction: third-party
+  category: Marketing
+  partner_url: https://kyvio.com/
+- partner_name: Facebook Lead Ads
+  partner: facebook-lead-ads
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/facebook-lead-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://www.facebook.com/business/ads/lead-ads
+- partner_name: Stripe
+  partner: stripe
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/stripe
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://stripe.com/
+- partner_name: YouTube
+  partner: youtube
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/youtube
+  direction: third-party
+  category: Google
+  partner_url: https://www.youtube.com/
+- partner_name: Wix
+  partner: wix
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/wix
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.wix.com/
+- partner_name: TidyCal
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/tidycal
+  direction: third-party
+  category: Calendar
+  partner_url: https://tidycal.com/
+- partner_name: Ninja Forms
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/ninjaforms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://ninjaforms.com/extensions/zapier/
+- partner_name: Paperform
+  partner: paperform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/paperform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://paperform.co/?utm_medium=partners&utm_source=Zapier&utm_campaign=integration_partners&utm_content=integration_page
+- partner_name: Leadpages
+  partner: leadpages
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/leadpages
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.leadpages.net/
+- partner_name: SQL Server
+  partner: microsoft-sql-server
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/sql-server
+  direction: third-party
+  category: Databases
+  partner_url: https://www.microsoft.com/sql-server
+- partner_name: Razorpay
+  partner: razorpay
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/razorpay-1
+  direction: third-party
+  category: Payment Processing
+  partner_url: https://razorpay.com/
+- partner_name: LiveChat
+  partner: livechat
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/instamojo/integrations/livechat
+  direction: third-party
+  category: Customer Support
+  partner_url: https://www.livechatinc.com/?utm_source=zapier.com&utm_medium=referral&utm_campaign=zapier_listing
 templates:
 - title: Add new successful Instamojo payments to Google Sheets rows
   url: https://zapier.com/apps/google-sheets/integrations/instamojo/975152/add-new-successful-instamojo-payments-to-google-sheets-rows
