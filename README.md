@@ -66,37 +66,156 @@
 
 Indian digital payments and e-commerce platform with a REST API for payment requests, refunds, store products, order management, and mobile payment links. Trusted by over 1.2 million Indian small businesses.
 
-## Links
+**Areas:** Payments · E-Commerce · India · Payment Gateway · Payment Links · Refunds · Order
+
+## Instamojo on APIs.io
+
+Everything profiled for Instamojo is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/instamojo/](https://apis.io/providers/instamojo/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Instamojo Authentication API](https://apis.io/apis/instamojo/instamojo-authentication-api/) — OAuth2 token generation for API access
+- [Instamojo Orders API](https://apis.io/apis/instamojo/instamojo-orders-api/) — Create and manage orders
+- [Instamojo Payment Requests API](https://apis.io/apis/instamojo/instamojo-payment-requests-api/) — Create and manage payment requests
+- [Instamojo Payments API](https://apis.io/apis/instamojo/instamojo-payments-api/) — Retrieve payment details
+- [Instamojo Refunds API](https://apis.io/apis/instamojo/instamojo-refunds-api/) — Create and retrieve refunds
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Instamojo Agentic Access](https://apis.io/agentic-access/instamojo/instamojo-agentic-access/)
+
+#### JSON Schema (2)
+
+The data models the API reads and writes.
+
+- [Instamojo Payment Request](https://apis.io/schemas/instamojo/payment-request/)
+- [Instamojo Refund](https://apis.io/schemas/instamojo/refund/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Instamojo Context](https://apis.io/jsonld/instamojo/instamojo-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Instamojo API Vocabulary](https://apis.io/vocabularies/instamojo/instamojo-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Create Payment Request](https://apis.io/examples/instamojo/create-payment-request/)
+- [Create Refund](https://apis.io/examples/instamojo/create-refund/)
+- [Generate Access Token](https://apis.io/examples/instamojo/generate-access-token/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Instamojo Payments Authentication API](https://apis.io/collections/instamojo/open-instamojo-authentication-api/)
+- [Instamojo Payments Authentication Orders API](https://apis.io/collections/instamojo/open-instamojo-orders-api/)
+- [Instamojo Payments Authentication Payment Requests API](https://apis.io/collections/instamojo/open-instamojo-payment-requests-api/)
+- [Instamojo Authentication Payments API](https://apis.io/collections/instamojo/open-instamojo-payments-api/)
+- [Instamojo Payments Authentication Refunds API](https://apis.io/collections/instamojo/open-instamojo-refunds-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Instamojo — jsonschema rules](https://apis.io/rules/instamojo/instamojo-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Instamojo Authentication](https://apis.io/security/instamojo/instamojo-authentication/)
+- [Instamojo Domain Security](https://apis.io/security/instamojo/instamojo-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Instamojo Plans Pricing](https://apis.io/plans/instamojo/instamojo-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Instamojo Rate Limits](https://apis.io/rate-limits/instamojo/instamojo-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Instamojo Finops](https://apis.io/finops/instamojo/instamojo-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.instamojo.com/)
 - [Documentation](https://docs.instamojo.com/)
-- [GitHub Organization](https://github.com/Instamojo)
-- [Blog](https://www.instamojo.com/blog/)
 - [Pricing](https://www.instamojo.com/pricing/)
-- [LinkedIn](https://www.linkedin.com/company/instamojo)
-- [X / Twitter](https://twitter.com/instamojo)
+- [Blog](https://www.instamojo.com/blog/)
 
-## API
+## API Evangelist rating
 
-The Instamojo Payments API is a REST API with base URL `https://api.instamojo.com/v2/`. It uses Application-Based Authentication with Bearer tokens. Key endpoints include:
+**Kin Score 29.9** — thin · rubric 0.24.0 · scored 2026-10-17
 
-- `POST /generate-access-token-application-based-authentication` - Generate access token
-- `POST /payment_requests/` - Create a payment request
-- `GET /payment_requests/{id}/` - Get a payment request
-- `POST /payment_requests/{id}/orders/` - Create an order from a payment request
-- `GET /payments/{id}/` - Get payment details
-- `POST /refunds/` - Create a refund
-- `GET /refunds/{id}/` - Get refund details
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 58.5 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 18.4 |
 
-## Pricing
+**Agent readiness 27.2** — agent-aware
 
-Instamojo charges per-transaction fees rather than API call fees:
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | verified |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-- **Free plans**: 5% + ₹3 per transaction
-- **Paid plans**: 2% + ₹3 per transaction
-- **Corporate cards**: 3% + ₹3 per transaction
-- 18% GST applies to all transaction fees
+**Regulatory alignment 15.2** — Payments
 
-## Maintainers
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/instamojo/](https://apis.io/providers/instamojo/).
 
-- Kin Lane (kin@apievangelist.com)
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Instamojo: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/instamojo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
